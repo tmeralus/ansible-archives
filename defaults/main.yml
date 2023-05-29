@@ -1,0 +1,10 @@
+---
+compose_dir: "/opt" # location to save your postgres docker porject
+project_name: "dev_db" # name of postgres
+pg_data_dir: "data" # name of data dir if uncommented in docker-compose.yaml file 
+pg_user: "postadmin"
+pg_pass: "ad1m1nistr@t0r"
+pg_scripts_dir: "/tmp/scripts"
+pg_databases: 
+ - nba_teams
+ - 

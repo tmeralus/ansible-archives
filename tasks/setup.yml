@@ -1,0 +1,28 @@
+---
+
+- name: Create potsgres directories 
+  file:
+    path: "{{ compose_dir }}/{{ project_name }}"
+    state: directory
+  with_items:
+    - "{{ compose_dir }}"
+    - "{{ compose_dir }}/{{ project_name }}"
+    - "{{ compose_dir }}/{{ project_name }}/{{ data_dir }}"
+    - "{{ compose_dir }}/{{ project_name }}/scripts"
+
+- name: Copy docker-compose.yaml
+  template: 
+    src: "templates/docker-compose.yaml.j2"
+    dest: "{{ compose_dir }}/{{ project_name }}/docker-compose.yaml"
+
+- name: Copy postgres scripts if present
+  template: 
+    src: "{{ item }}"
+    dest: "{{ compose_dir }}/{{ project_name }}/scripts/"
+  with_items:
+    - "templates/*"
+
+
+- name: spin up postgres 
+  command: "docker-compose up -d"
+    chdir: "{{ compose_dir }}/{{ project_name }}"

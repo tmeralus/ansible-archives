@@ -1,0 +1,7 @@
+---
+
+- name: Import postgres scripts 
+  command: "psql -h hostname -d postgres -U username -f {{ item  }}"
+  register: run_scripts
+  with_items: 
+    - "{{ pg_scripts }}"
