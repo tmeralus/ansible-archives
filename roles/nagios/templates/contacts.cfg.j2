@@ -1,0 +1,428 @@
+###############################################################################
+# CONTACTS.CFG - SAMPLE CONTACT/CONTACTGROUP DEFINITIONS
+#
+# NOTES: This config file provides you with some example contact and contact
+#        group definitions that you can reference in host and service
+#        definitions.
+#
+#        You don't need to keep these definitions in a separate file from your
+#        other object definitions.  This has been done just to make things
+#        easier to understand.
+#
+###############################################################################
+
+
+
+###############################################################################
+###############################################################################
+#
+# CONTACTS
+#
+###############################################################################
+###############################################################################
+
+# Just one contact defined by default - the Nagios admin (that's you)
+# This contact definition inherits a lot of default values from the 'generic-contact'
+# template which is defined elsewhere.
+
+#define contact{
+#        contact_name                    nagiosadmin		; Short name of user
+#	use				generic-contact		; Inherit default values from generic-contact template
+#        alias                           Nagios Admin		; Full name of user
+ #       email                           mscott@revelex.com	; <<***** CHANGE THIS TO YOUR EMAIL ADDRESS ******
+ #       }
+
+
+# 'billp1' contact definition
+define contact{
+        contact_name                    billp1
+        alias                           Bill from Cool Air
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5614450069@vtext.com
+        }
+
+# 'rgnannm' contact definition
+define contact{
+        contact_name                    rgnannm
+        alias                           Russ Gnann email
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           rgnann@revelex.com
+        }
+
+# 'rgnannp1' contact definition
+define contact{
+        contact_name                    rgnannp1
+        alias                           Russ Gnann Pager
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5615049762@vtext.com
+        }
+
+# 'josem' contact definition
+define contact{
+        contact_name                    josem
+        alias                           Jose Almodovar
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           jalmodovar@revelex.com
+        }
+
+# 'josep1' contact definition
+define contact{
+        contact_name                    josep1
+        alias                           Jose Almodovar Pager
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5613067333@tmomail.net
+        }
+
+# 'jrodriguezm' contact definition
+define contact{
+        contact_name                    jrodriguezm
+        alias                           John Rodriguez
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           jrodriguez@revelex.com
+        }
+
+# 'hlechon' contact definition
+define contact{
+        contact_name                    hlechon
+        alias                           Hector Lechon
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5616853132@txt.att.net
+        }
+
+# 'dba' contact definition
+define contact{
+        contact_name                    dba
+        alias                           Database Admin
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           dba@revelex.com
+        }
+
+# 'dba-nonprod' contact definition
+define contact{
+        contact_name                    dba-nonprod
+        alias                           Database Admin
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           dba@revelex.com
+        }
+
+# 'jhorvath' contact definition
+define contact{
+        contact_name                    jhorvath
+        alias                           James Horvath
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           jhorvath@revelex.com
+        }
+
+# 'jhorvathp1' contact definition
+define contact{
+        contact_name                    jhorvathp1
+        alias                           James Horvath Pager
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email				5613062014@txt.att.net
+        }
+
+# 'prady' contact definition
+define contact{
+        contact_name                    prady
+        alias                           Prady
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           prady@revelex.com
+        }
+
+# 'pradyp1' contact definition
+define contact{
+        contact_name                    pradyp1
+        alias                           Prady Pager
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           pprady@gmail.com
+        }
+
+# 'gbarnard' contact definition
+define contact{
+        contact_name                    gbarnard
+        alias                           Glenn Barnard
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           gbarnard@revelex.com
+        }
+
+# 'java' contact definition
+define contact{
+        contact_name                    java
+        alias                           Java
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           java@revelex.com
+	}
+
+# 'level1' contact definition
+define contact{
+        contact_name                    level1
+        alias                           Level1 Support
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           level1.support@revelex.com
+	}
+
+# 'cliot' contact definition
+define contact{
+        contact_name                    cliot
+        alias                           Christina Liot
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           cliot@revelex.com
+	}
+
+# 'efarias' contact definition
+define contact{
+        contact_name                    efarias
+        alias                           Eliane Farias
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           efarias@revelex.com
+	}
+
+# 'tmeralus' contact definition
+define contact{
+        contact_name                    tmeralus
+        alias                           Tedlay Meralus
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           tmeralus@revelex.com
+	}
+
+# 'tmeralusp1' contact definition
+define contact{
+        contact_name                    tmeralusp1
+        alias                           Tedley Meralus Pager
+       	service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5615263569@tmomail.net
+       	}
+
+# 'hlechonp1' contact definition
+define contact{
+        contact_name                    hlechonp1
+        alias                           Hector Lechon Pager
+       	service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5616853132@vtext.com
+       	}
+
+# 'klofortep1' contact definition
+define contact{
+        contact_name                    klofortep1
+        alias                           Kenia Loforte Pager
+       	service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,u,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           5615236801@messaging.sprintpcs.com
+       	}
+
+###############################################################################
+###############################################################################
+#
+# CONTACT GROUPS
+#
+###############################################################################
+###############################################################################
+
+# We only have one contact in this simple configuration file, so there is
+# no need to create more than one contact group.
+
+# 'mscott' contact group definition
+define contactgroup{
+        contactgroup_name       mscott
+        alias                   Nagios Admin
+        members                 rgnannm
+        }
+
+# 'tempsensor' contact group definition
+define contactgroup{
+        contactgroup_name       tempsensor
+        alias                   Temperator Pager
+        members                 josem, josep1, jhorvath, jhorvathp1, rgnannm, rgnannp1, billp1, prady, pradyp1, tmeralus, tmeralusp1
+        }
+
+# 'dba' contact group definition
+define contactgroup{
+        contactgroup_name       dba
+        alias                   Database Administrators
+        members                 dba, jhorvath, josem, prady, hlechon, rgnannm, prady, cliot, efarias, tmeralus, klofortep1, hlechonp1
+        }
+
+# 'dba-nonprod' contact group definition
+define contactgroup{
+        contactgroup_name       dba-nonprod
+        alias                   Database Administrators
+        members 		dba, josem, hlechon, rgnannm, tmeralus
+        }
+
+# 'admins' contact group definition
+define contactgroup{
+        contactgroup_name       admins
+        alias                   Linux Administrators
+        members                 rgnannm, josem, prady, cliot, tmeralus
+        }
+
+# 'linux-admins' contact group definition
+define contactgroup{
+        contactgroup_name       linux-admins
+        alias                   Linux Administrators
+        members                 rgnannm, josem, prady, cliot, tmeralus
+        }
+
+# 'linux-admins-nonprod' contact group definition
+define contactgroup{
+        contactgroup_name       linux-admins-nonprod
+        alias                   Linux Administrators
+        members                 rgnannm, josem, tmeralus
+        }
+
+# 'network-admins' contact group definition
+define contactgroup{
+        contactgroup_name       network-admins
+        alias                   Network Administrators
+        members                 jhorvath, josem, josep1, prady, rgnannm, rgnannp1, cliot, tmeralus,
+        }
+# 'network-mobile' contact group definition
+define contactgroup{
+        contactgroup_name       network-mobile
+        alias                   Network Administrators
+        members                 josep1, rgnannp1, tmeralusp1
+        }
+
+# 'tmeralusp1' contact group definition
+define contactgroup{
+        contactgroup_name       tmeralusp1
+        alias                   Tedley Tier III
+        members                 tmeralusp1
+        }
+
+# 'rgnannp1' contact group definition
+define contactgroup{
+        contactgroup_name       rgnannp1
+        alias                   Russ Tier III
+        members                 rgnannp1
+        }
+
+# 'gbarnard' contact group definition
+define contactgroup{
+        contactgroup_name       gbarnard
+        alias                   UAT DB Content
+        members                 gbarnard
+        }
+
+# 'java' contact group definition
+define contactgroup{
+        contactgroup_name       java
+        alias                   java
+        members                 java, prady, cliot, efarias
+        }
+
+# 'support' contact group definition
+define contactgroup{
+        contactgroup_name       support
+        alias                   support
+        members                 level1, prady
+        }
