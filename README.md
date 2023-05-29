@@ -1,30 +1,45 @@
-# Ansible Archives 
+Memcached-Setup
+=========
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+ansible-role-memcache-setup
 
-## Branching 
-each branch represents a different ansible playbook 
 
-search through branches for different playbooks
+Requirements
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+This playbook has a setup task that installs Devlopment Tools
+on RedHat/CentOS Based distros are found
+
+Role Variables
+  Memcache Port 2 and 3 can be coomented/uncommented in each OS-specificed var file
+  to add multiple instances of memcached on the same server
+
+  memcached_port: '666'
+  memcached_port2: '888'
+  memcached_port3: '999'
+  memcached_listen_ip: 127.0.0.1
+  memcache_version: "memcached-1.5.15"
+  memcache_url: "http://www.memcached.org/files/{{ memcache_version }}.tar.gz"
+  memcache_dir: "/opt/{{ memcache_version }}"
+  install_dir: "/tmp/{{ memcache_version }}"
+  memcached_user: root
+  memcached_config_file: /etc/sysconfig/memcached
+  memcached_memory_limit: '2048'
+  memcached_connections: '2048'
+  memcached_cache: '2048'
+
+Dependencies
+------------
+ glibc and cmake tools are required to install memcached from souces.
+
+
+Test Playbook
+
+ ansible-playbook -i inventory/local
+ roles/memcache/main.yml
+
+License
+GNU GPLv3
+
+
+Author Information
+ Twitter: @TechGameTeddy
