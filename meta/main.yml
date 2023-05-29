@@ -1,0 +1,28 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: awx_tower
+  author: tmeralus
+  description: "Install AWX (Open Source Ansible Tower version)."
+  issue_tracker_url: https://github.com/tmeralus/ansible-role-awx-tower/issues
+  min_ansible_version: 2.0
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - automation
+    - system
+    - web
+    - awx
+    - ci

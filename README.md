@@ -1,30 +1,24 @@
-# Ansible Archives 
+# Ansible Role: AWX (open source Ansible Tower)
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+Installs and configures [AWX](https://github.com/ansible/awx), the open source version of [Ansible Tower](https://www.ansible.com/tower).
 
-## Branching 
-each branch represents a different ansible playbook 
+## Role Variables
 
-search through branches for different playbooks
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+    awx_repo: https://github.com/ansible/awx.git
+    awx_repo_dir: "~/awx"
+    awx_version: devel
+    awx_keep_updated: yes
+
+Variables to control what version of AWX is checked out and installed.
+
+    awx_run_install_playbook: yes
+
+By default, this role will run the installation playbook included with AWX (which builds a set of containers and runs them). You can disable the playbook run by setting this variable to `no`.
+
+## Things to Note
+ln -s /usr/bin/python36 /usr/bin/python3
+
+
+After AWX is installed, you can log in with the default username `admin` and password `password`.
