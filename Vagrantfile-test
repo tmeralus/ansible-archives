@@ -1,0 +1,33 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/focal64" # set vagrant image 
+
+    config.vm.define "main" do |main| 
+        main.vm.hostname = "main"  # Set the hostname of the VM 
+        main.vm.network :private_network, ip: "172.20.30.11"
+    
+    end
+
+    config.vm.define "node" do |node| 
+        node.vm.hostname = "node"  # Set the hostname of the VM 
+        node.vm.network :private_network, ip: "172.20.30.12"
+    
+    end
+ 
+    config.vm.provision "ansible" do |ansible| 
+        ansible.verbose = "v"
+        ansible.inventory_path = "test/hosts"
+        ansible.playbook="playbook.yaml" 
+        ansible.groups = {
+        "redis_nodes" => [
+          "main"
+        ],
+        "redis_nodes" => [
+          "node",
+        ]
+    }
+    end
+ 
+
+end
+

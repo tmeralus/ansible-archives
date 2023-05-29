@@ -1,0 +1,3 @@
+[redis_nodes]
+controller redis_role=master
+worker
