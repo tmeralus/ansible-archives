@@ -1,30 +1,40 @@
-# Ansible Archives 
+# Deprecated 
+# This repo is archived and hasnt been maintained or tested in quite some time. 
+# consider finding another solution
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+# ansible-elasticsearch
+An ansible playbook that installs elasticsearch 7.0.0
 
-## Branching 
-each branch represents a different ansible playbook 
+## Requirements
+This playbook prompts for Session or Cache cluster
+This only affects the parameters saved in the redis.conf file.
 
-search through branches for different playbooks
+Cache Cluster: saves redis data in memory (normal behavior in an LRU/Memcached setup)
+Session Cluster: saves data on disk (Setup for using Redis as a Sesssion store)
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+
+## Role Variables
+### all variables can be found in the defaults/main.yml
+## specific vars for elasticsearch names are in the playbook.yml file #
+{% for host in groups['elk'] %}
+{% if hostvars[host]['elk_role'] == 'master' %}
+network.host: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
+{% endif %}
+{% endfor %}
+
+## Dependencies
+
+## Test Playbook
+ ansible-playbook -i inventory/local -l elk ansible-role-elk-stack/elk.yml
+
+ Inventory group should be labeled as [elk]
+ Example:
+ [elk]
+ dolly01
+
+License
+GNU GPLv3
+
+
+Author Information
+ Twitter: @TechGameTeddy
