@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: openssl
+  author: tmeralus
+  description: Open SSL playbook for setting up security
+  issue_tracker_url: https://github.com/tmeralus/ansible-role-openssl/issues
+  company: ""
+  license: "(GPLv3,)"
+  min_ansible_version: 2.5.4
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - chronograf
+    - telegraf
+    - database
+    - influxdb
+    - kapacitor
+    - tick
