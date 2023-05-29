@@ -1,30 +1,27 @@
-# Ansible Archives 
+# Ansible Role Docker Build
+Ansible role to build a docker container locally,
+then push the new container to docker hub.
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+## Important Variables
+There are specific variables that do the following
+dockerhub_name: Used to login to docker registry
+dockerhub_password: password for dockerhub registrsy login
 
-## Branching 
-each branch represents a different ansible playbook 
+- dock_ubuntu_image: base image for Ubuntu
+- dock_centos_image: base image for CentOS
+- local_container_name: name of container being saved and pushed to dockerhub
 
-search through branches for different playbooks
+- ansible_keypair: ansible user key to add to docker container if created
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+- local_user_keypair: user running ansible playbook public key to add to docker container if found or created
+
+
+
+This ansible playbook does the following   
+- installs pyhthon based docker and docker related packages
+- creates a docker file with previously configured ansible ssh key if found
+- setup a docker container that ansible can penetrate.
+- connects to dockerhub
+- checks for docker dev container
+- if not found creates a dev container
+- pushes dev container to dockerhub
