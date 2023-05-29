@@ -1,30 +1,25 @@
-# Ansible Archives 
+Tick Stack
+=========
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+Ansible Role to install Tick Stack time series database on a
+standalone Centos server.
 
-## Branching 
-each branch represents a different ansible playbook 
+## Requirements
 
-search through branches for different playbooks
+## Role Variables
+Variables for each application are broken down into different files
+located under the group_vars file.
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+
+## Dependencies
+ smtp and email tools like mailx are installed for alerting with tick-stack
+
+## Example Playbook
+ ansible-playbook -i tests/inventory roles/redis-sentinel-HA/main.yml
+
+License
+GNU GPLv3
+
+
+Author Information
+ Twitter: @TechGameTeddy
