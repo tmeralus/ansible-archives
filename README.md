@@ -1,30 +1,39 @@
-# Ansible Archives 
+# Ansible playbook to install redis
+Redis-Sentinel HA Setup
 
-old and unmaintained ansible playbooks used for referencing 
-ansible related solutions. 
+This role is designed to setup a Parent/Child High Availability
+cluster with 3 sentinel instances running for a fault tolerant Redis Environment.
 
-## Branching 
-each branch represents a different ansible playbook 
+## Requirements
 
-search through branches for different playbooks
+## Cache vs Session store
+LINK: https://redislabs.com/blog/cache-vs-session-store/
 
-Current List of playbooks 
-```
-├── ansible-role-awx-tower
-├── ansible-role-docker-build
-├── ansible-role-docker-playground
-├── ansible-role-elk-stack
-├── ansible-role-memcache
-├── ansible-role-nagios-server
-├── ansible-role-openssl-certgen
-├── ansible-role-openssl
-├── ansible-role-postgres-docker
-├── ansible-role-redis
-├── ansible-role-redis-sentinel
-├── ansible-role-rhel-to-centos
-├── ansible-role-template
-├── ansible-role-tick-stack
-├── ansible-role-tick-stack
-├── ansible-role-wazuh
-└── 
-```
+This playbook also requires specific host variables
+ Example:
+ [redis-nodes]
+ dolly01 redis_role=master
+ dolly02 redis_role=slave
+ dolly03 redis_role=sentinel
+
+## Role Variables
+### all variables can be found under group_vars/all.yml file
+- redis_version: "5.0.5"
+- redis_url: "http://download.redis.io/releases/redis-{{ redis_version }}.tar.gz"
+- redis_dir: "/opt/redis-{{ redis_version }}"
+- install_dir: "/opt/"
+- redis_cache: Adding any vaule will setup redis for LRU cache only cluster
+- redis_session: # Adding any value witll setup redis for session store cluster
+
+## Dependencies
+ tcl and cmake tools are required to install redis from sources.
+
+## Test Playbook
+ ansible-playbook -i tests/inventory roles/redis-sentinel-HA/main.yml
+
+License
+GNU GPLv3
+
+
+Author Information
+ Twitter: @TechGameTeddy
